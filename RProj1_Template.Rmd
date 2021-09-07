@@ -3,8 +3,15 @@ title: "R Project 1 - Hello R"
 author: "Ashle Markey"
 date: "September 8, 2021"
 output:
-  html_document: default
-  pdf_document: default
+  html_document: 
+    fig_height: 11
+    fig_width: 13
+    highlight: kate
+    theme: readable
+  pdf_document: 
+    highlight: kate
+    fig_width: 13
+    fig_height: 11
 ---
 
 ```{r, include=FALSE}
@@ -94,4 +101,21 @@ dino_data %>%
 
 ### Exercise 5
 
-(Add code and narrative as needed. To add R chunks either type out the backticks, curly braces, and the letter `r` or use the Insert chunk button above, with the green +C.)
+We can plot all of the datasets at once and organize them into columns, displaying a more neat visualization for the user. 
+
+```{r, echo=FALSE}
+ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset))+
+  geom_point()+
+  facet_wrap(~ dataset, ncol = 3) + # facet the dataset variable, in 3 cols 
+  theme(legend.position = "none")
+```
+  
+  We can group the summary correlation in a similar manner:
+  
+```{r, echo=FALSE}
+datasaurus_dozen %>% 
+  group_by(dataset) %>% 
+  summarize(r = cor(x, y)) %>% 
+  print(13)
+```
+  
