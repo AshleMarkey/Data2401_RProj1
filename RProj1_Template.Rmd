@@ -2,14 +2,15 @@
 title: "R Project 1 - Hello R"
 author: "Ashle Markey"
 date: "September 8, 2021"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
-MAKE SURE YOU READ AND FOLLOW **ALL** INSTRUCTIONS ON THE INSTRUCTION DOCUMENT. 
-
+```{r, include=FALSE}
 ### Load packages
-
-```{r load-packages, message=FALSE}
+```
+```{r load-packages, message=FALSE, echo=FALSE}
 library(tidyverse) 
 library(datasauRus)
 ```
@@ -24,20 +25,18 @@ library(datasauRus)
 
 ### Exercise 2
 
-(The answers for this Exercise are given for you below. But you should clean up some of the narrative so that it only includes what you want to turn in.)
+Plotting the data in the dino dataset:  
 
-First let's plot the data in the dino dataset:
-
-```{r plot-dino, fig.height=3, fig.width=6}
+```{r plot-dino, fig.height=3, fig.width=6, echo=FALSE}
 dino_data <- datasaurus_dozen %>%
   filter(dataset == "dino")
 ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
   geom_point()
 ```
+  
+  When we calculate the correlation between `x` and `y` in this dataset we get:
 
-And next calculate the correlation between `x` and `y` in this dataset:
-
-```{r cor-dino}
+```{r cor-dino, echo=FALSE}
 dino_data %>%
   summarize(r = cor(x, y))
 ```
