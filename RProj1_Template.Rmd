@@ -34,7 +34,7 @@ ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
   geom_point()
 ```
   
-  Once we assess the visual relationship between the two variables, we can calculate the correlation between `x` and `y` in this dataset and we get:
+  Once we assess the visual relationship between the two variables, we can calculate the correlation between `x` and `y` in this dataset. When we do this, we get:
 
 ```{r cor-dino, echo=FALSE}
 dino_data %>%
@@ -42,23 +42,27 @@ dino_data %>%
 ```
 *Calculating a correlation coefficient is not particularly needed for this case since the relationship between x and y is not linear.*
 
+
 ### Exercise 3
+We need to visualize and asses the form of the relationship between the variables `x` and `y`. We can do this by plotting the data in the star dataset:  
 
-(Add code and narrative as needed. Note that the R chunks are labeled with `plot-star` and `cor-star` to provide spaces to place the code for plotting and calculating the correlation coefficient. To finish, remember to clean up the narrative by removing these instructions.)
-
-
-
-```{r plot-star}
-
-
+```{r plot-star, fig.height=3, fig.width=6, echo=FALSE}
+dino_data <- datasaurus_dozen %>%
+  filter(dataset == "star")
+ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
+  geom_point()
 ```
 
-I'm some text, you should replace me with more meaningful text...
+Once we assess the visual relationship between the two variables, we can calculate the correlation between `x` and `y` in this dataset. When we do this, we get:
  
-```{r cor-star}
-
-
+```{r cor-star, echo=FALSE}
+dino_data %>%
+  summarize(r = cor(x, y))
 ```
+  *The relationship between x and y variables are not linear.*  
+  *When comparing the value of r in the star dataset to the value of r in the dino data set, you* 
+  *will notice that the r value of star is -0.0630 where as the r value of dino is -0.0645. There*
+  *is a -0.0015 difference between the two.*
 
 ### Exercise 4
 
