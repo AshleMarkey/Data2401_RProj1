@@ -3,8 +3,8 @@ title: "R Project 1 - Hello R"
 author: "Ashle Markey"
 date: "September 8, 2021"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
 ```{r, include=FALSE}
@@ -25,7 +25,7 @@ library(datasauRus)
 
 ### Exercise 2
 
-Plotting the data in the dino dataset:  
+First we need to visualize this data to assess the form of the relationship between the variables `x` and `y`. We can do this by plotting the data in the dino dataset:  
 
 ```{r plot-dino, fig.height=3, fig.width=6, echo=FALSE}
 dino_data <- datasaurus_dozen %>%
@@ -34,12 +34,13 @@ ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
   geom_point()
 ```
   
-  When we calculate the correlation between `x` and `y` in this dataset we get:
+  Once we assess the visual relationship between the two variables, we can calculate the correlation between `x` and `y` in this dataset and we get:
 
 ```{r cor-dino, echo=FALSE}
 dino_data %>%
   summarize(r = cor(x, y))
 ```
+*Calculating a correlation coefficient is not particularly needed for this case since the relationship between x and y is not linear.*
 
 ### Exercise 3
 
