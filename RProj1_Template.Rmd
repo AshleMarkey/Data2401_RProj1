@@ -1,6 +1,6 @@
 ---
 title: "R Project 1 - Hello R"
-author: "Ashle Markey"
+author: "Ashle' Markey"
 date: "September 8, 2021"
 output:
   html_document: 
